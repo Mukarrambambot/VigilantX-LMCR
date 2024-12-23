@@ -6,6 +6,7 @@ from tkinter import ttk, messagebox
 from typing import Callable
 from utils.security import hash_password
 from database.db_manager import DatabaseManager
+from gui.auth.register_window import RegisterWindow
 
 class LoginWindow(tk.Toplevel):
     def __init__(self, parent: tk.Tk, db_manager: DatabaseManager, on_login: Callable):
@@ -100,5 +101,4 @@ class LoginWindow(tk.Toplevel):
     
     def _show_register(self, event=None):
         """Show registration window."""
-        # TODO: Implement registration functionality
-        messagebox.showinfo("Register", "Registration functionality coming soon")
+        RegisterWindow(self.master, self.db_manager)
